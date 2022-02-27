@@ -30,7 +30,7 @@ const Links = () => {
     }, [])
 
     function handleOpenLink() {
-        setData(link)
+        setData(myLinks)
         setShowModal(true)
     }
 
@@ -56,7 +56,7 @@ const Links = () => {
 
                 {myLinks.map(link => (
                     <div key={link.id}>
-                        <button onClick={() => handleOpenLink(Props.link)}> <FiLink size={25} color="#222" /> {link.long_url} </button>
+                        <button onClick={() => handleOpenLink(link)}> <FiLink size={25} color="#222" /> {link.long_url} </button>
                         <button onClick={() => handleDelete(link.id)}><FiTrash size={25} color="#222" /></button>
                     </div>
                 ))}

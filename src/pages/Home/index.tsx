@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 import api from '../../services/api'
 import { saveLink } from '../../services/storeLinks'
-import {Container} from './style'
+import { Container, Box } from './style'
 
 export default function Home() {
 
@@ -16,7 +16,7 @@ export default function Home() {
 
 
     async function handleShortLink() {
-        
+
 
         try {
             const res = await api.post('shorten', {
@@ -38,36 +38,40 @@ export default function Home() {
     return (
         <>
             <Menu />
-            
-                <div className="logo">
-                    Logo
+
+            <div className="logo">
+                Logo
             </div>
 
             <Container>
-            <h1>Short Links</h1>
-                <h4>Put your link here for to short</h4>
 
-                <div className="inputs">
-                    <FiLink size={24} color="#222" />
-                    <input
-                        placeholder="Put your link here"
-                        value={link}
-                        onChange={(e) => setLink(e.target.value)}
+                <Box>
+                    <h1>Short Links</h1>
+                    <h4>Put your link here for to short</h4>
+
+                    <div>
+                    {/* <FiLink className="iconLink" size={24} color="#222" /> */}
+                        <input
+                            placeholder="Put your link here"
+                            value={link}
+                            onChange={(e) => setLink(e.target.value)}
+                        />
+                    </div>
+
+                    <button className="buttonAction" onClick={handleShortLink}>Short Links</button>
+                </Box>
+
+
+
+                {showModal && (
+                    <ModalLink
+                        closeModal={() => setShowModal(false)}
+                        content={data}
                     />
-                    <button onClick={handleShortLink}>Short Links</button>
 
-                </div>
-          
-
-            {showModal && (
-                <ModalLink
-                    closeModal={() => setShowModal(false)}
-                    content={data}
-                />
-
-            )}
+                )}
             </Container>
-                
+
 
         </>
     )
