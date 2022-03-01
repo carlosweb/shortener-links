@@ -34,7 +34,7 @@ export const Box = styled.div`
 
     input {
       border: none;
-      border-radius: 0.5rem;
+      border-radius: 0.5rem 0 0 0.5rem;
       font-size: 1.2rem;
       padding: 1rem;
       width: clamp(200px, 80%, 1140px);
@@ -43,10 +43,9 @@ export const Box = styled.div`
   }
   .buttonAction {
     border: none;
-      border-radius: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
       cursor: pointer;
       padding: 1rem;
-      width: clamp(200px, 80%, 1140px);
       outline: none;
   }
 `;

@@ -8,6 +8,7 @@ import {Container} from './style'
 import { getLinksSave, deleteLink } from '../../services/storeLinks'
 import Modal from '../../components/Modal'
 
+
 const Links = () => {
 
     const [myLinks, setMyLinks] = useState([])
@@ -29,12 +30,12 @@ const Links = () => {
 
     }, [])
 
-    function handleOpenLink() {
-        setData(myLinks)
+    function handleOpenLink(link: string) {
+        setData(link)
         setShowModal(true)
     }
 
-    async function handleDelete(id) {
+    async function handleDelete(id: number) {
         const result = await deleteLink(myLinks, id)
 
         if (result.length === 0) {
@@ -56,7 +57,7 @@ const Links = () => {
 
                 {myLinks.map(link => (
                     <div key={link.id}>
-                        <button onClick={() => handleOpenLink(link.id)}> <FiLink size={25} color="#222" /> {link.long_url} </button>
+                        <button onClick={() => handleOpenLink(link)}> <FiLink size={25} color="#222" /> {link.long_url} </button>
                         <button onClick={() => handleDelete(link.id)}><FiTrash size={25} color="#222" /></button>
                     </div>
                 ))}

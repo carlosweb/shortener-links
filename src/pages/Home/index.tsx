@@ -47,18 +47,19 @@ export default function Home() {
 
                 <Box>
                     <h1>Short Links</h1>
-                    <h4>Put your link here for to short</h4>
+                    <h4>Enter the link here</h4>
 
                     <div>
                     {/* <FiLink className="iconLink" size={24} color="#222" /> */}
                         <input
-                            placeholder="Put your link here"
+                            placeholder="Enter the link here"
                             value={link}
                             onChange={(e) => setLink(e.target.value)}
                         />
+                        <button className="buttonAction" onClick={handleShortLink}>Short Links</button>
                     </div>
 
-                    <button className="buttonAction" onClick={handleShortLink}>Short Links</button>
+                    
                 </Box>
 
 
